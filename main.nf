@@ -20,6 +20,6 @@ workflow {
 
 output {
     greeting {
-        path '.'
+        path { "${workflow.runName}" }
     }
 }
