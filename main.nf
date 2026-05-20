@@ -1,8 +1,6 @@
 #!/usr/bin/env nextflow
 
 process MAKE_FILE {
-    publishDir "results", mode: 'copy'
-
     output:
     path 'greeting.txt'
 
@@ -13,5 +11,15 @@ process MAKE_FILE {
 }
 
 workflow {
-    MAKE_FILE()
+    main:
+    ch_greeting = MAKE_FILE()
+
+    publish:
+    greeting = ch_greeting
+}
+
+output {
+    greeting {
+        path '.'
+    }
 }

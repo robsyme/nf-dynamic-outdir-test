@@ -2,7 +2,7 @@
 
 A one-process Nextflow pipeline used to test setting a dynamic per-run output base directory via the `NXF_FILE_ROOT` environment variable, without modifying the pipeline's `publishDir` definitions.
 
-The single process publishes `greeting.txt` to a *relative* path `results/`. When `NXF_FILE_ROOT` is set, Nextflow resolves that relative path against it, so each run lands in its own subdirectory.
+The pipeline uses Nextflow's workflow `output { }` block to publish `greeting.txt`. The output directory defaults to a *relative* `results/`. When `NXF_FILE_ROOT` is set, Nextflow resolves that relative path against it, so each run lands in its own subdirectory.
 
 ## Run locally
 
